@@ -25,16 +25,69 @@ public class Calculator{
             }
             break;
             case "subtract":
+            System.out.println("Enter two integers:");
+            if(input.hasNextInt()){
+                int int1 = input.nextInt();
+                if (input.hasNextInt()){
+                    int int2 = input.nextInt();
+                    System.out.println("Answer: " + (int1 - int2));
+                } else {
+                    System.out.println(errorMessage);
+                }
+            } else {
+                System.out.println(errorMessage);
+            }
             break;
             case "multiply":
+            System.out.println("Enter two doubles:");
+            if(input.hasNextInt()){
+                double double1 = input.nextDouble();
+                if(input.hasNextDouble()){
+                    double double2 = input.nextDouble();
+                    System.out.printf("Answer: %.2f\n", double1 * double2);
+                } else {
+                    System.out.println(errorMessage);
+                }
+            } else {
+                System.out.println(errorMessage);
+            }
             break;
             case "divide":
+            System.out.println("Enter two doubles:");
+            if(input.hasNextDouble()){
+                double double1 = input.nextDouble();
+                if(input.hasNextDouble()){
+                    double double2 = input.nextDouble();
+                    if(double2 != 0){
+                        System.out.printf("Answer: %.2f\n", double1 / double2);
+                    } else {
+                        System.out.println(errorMessage);
+                    }
+                } else {
+                    System.out.println(errorMessage);
+                }
+            } else {
+                System.out.println(errorMessage);
+            }
             break;
             case "alphabetize":
+            System.out.println("enter two words:");
+            String word1 = input.next();
+            String word2 = input.next();
+            if(word1.toLowerCase().equals(word2.toLowerCase())){
+                System.out.println("Answer: Chicken or Egg");
+            } else if (word1.toLowerCase().compareTo(word2.toLowerCase()) < 0) {
+                    System.out.println("Answer: " + word1 + " comes before " + word2 + " alphabetically.");
+                } else if (word1.toLowerCase().compareTo(word2.toLowerCase()) > 0) {
+                     System.out.println("Answer: " + word2 + " comes before " + word1 + " alphabetically.");
+                } else {
+                System.out.println(errorMessage); 
+            }
             break;
             default:
             System.out.println(errorMessage);
             break;
         }
+        input.close();
     }
 }
